@@ -1,6 +1,5 @@
 <template>
     <div class="min-h-screen bg-gray-50">
-        <!-- Header -->
         <div class="sticky top-0 bg-white z-10 px-4 py-3 flex items-center border-b">
             <button @click="goBack" class="text-blue-500 hover:text-blue-600 transition-colors" aria-label="Go back">
                 <ChevronLeftIcon class="h-6 w-6" />
@@ -9,20 +8,16 @@
 
         <div class="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
             <div class="lg:grid lg:grid-cols-2 lg:gap-x-8 lg:items-start">
-                <!-- Product Image -->
                 <div
                     class="relative w-full aspect-square bg-gradient-to-b from-white to-blue-200 rounded-lg overflow-hidden">
                     <img :src="product.image" :alt="product.name" class="w-full h-full object-contain p-8" />
                 </div>
 
-                <!-- Product Details -->
                 <div class="mt-10 px-4 sm:px-0 sm:mt-16 lg:mt-0">
-                    <!-- Service Type -->
                     <div class="text-blue-500 font-medium mb-2">
                         {{ product.serviceType }}
                     </div>
 
-                    <!-- Product Name and Price -->
                     <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                         {{ product.name }}
                     </h1>
@@ -30,7 +25,6 @@
                         ${{ product.price }}/pc
                     </p>
 
-                    <!-- Product Description -->
                     <div class="mt-6">
                         <h2 class="sr-only">Description</h2>
                         <p class="text-gray-600 leading-relaxed">
@@ -38,7 +32,6 @@
                         </p>
                     </div>
 
-                    <!-- Quantity Selector -->
                     <div class="mt-10 flex items-center">
                         <h2 class="text-sm font-medium text-gray-900 mr-4">Quantity</h2>
                         <div class="flex items-center space-x-4">
@@ -58,7 +51,6 @@
                         </div>
                     </div>
 
-                    <!-- Add to Cart Button -->
                     <div class="mt-10">
                         <button type="submit"
                             class="w-full bg-blue-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
@@ -75,7 +67,6 @@
 import { ref } from 'vue'
 import { ChevronLeftIcon, MinusIcon, PlusIcon } from 'lucide-vue-next'
 
-// In Nuxt, you'd use useRoute() here
 const props = defineProps({
     id: {
         type: String,
@@ -83,7 +74,6 @@ const props = defineProps({
     }
 })
 
-// Mock product data - in Nuxt you'd fetch this from your API
 const product = ref({
     id: props.id,
     name: 'T-Shirt',
@@ -106,13 +96,11 @@ const decrementQuantity = () => {
 }
 
 const goBack = () => {
-    // In Nuxt, you'd use navigateTo or router.back()
     window.history.back()
 }
 </script>
 
 <style scoped>
-/* Hide number input spinners */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
